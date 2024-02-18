@@ -111,6 +111,7 @@ pub struct Url {
     pub username: String,
     pub password: String,
     pub proto: ProtoType,
+    pub next: String,
 }
 
 impl fmt::Display for Url {
@@ -233,6 +234,7 @@ impl Url {
             username: "".to_owned(),
             password: "".to_owned(),
             proto,
+            next: "".to_owned(),
         })
     }
 

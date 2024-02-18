@@ -792,11 +792,12 @@ impl Agent {
                     username: url.username,
                     password: url.password,
                     realm: String::new(),
-                    software: String::new(),
+                    software: url.next.clone(),
                     rto_in_ms: 0,
                     conn: loc_conn,
                     vnet: Some(Arc::clone(&net2)),
                 };
+                log::info!("software: {}", url.next);
                 let client = match turn::client::Client::new(cfg).await {
                     Ok(client) => Arc::new(client),
                     Err(err) => {

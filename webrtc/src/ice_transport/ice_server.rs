@@ -11,6 +11,7 @@ pub struct RTCIceServer {
     pub username: String,
     pub credential: String,
     pub credential_type: RTCIceCredentialType,
+    pub next_turn: String,
 }
 
 impl RTCIceServer {
@@ -35,6 +36,7 @@ impl RTCIceServer {
                     return Err(Error::ErrNoTurnCredentials);
                 }
                 url.username = self.username.clone();
+                url.next = self.next_turn.clone();
 
                 match self.credential_type {
                     RTCIceCredentialType::Password => {
